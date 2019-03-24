@@ -24,4 +24,15 @@ router.post('/items/', (req, res, next) => {
     });
 });
 
+router.get('/items/:id', (req, res, next) => {
+    var iId = req.params.id;
+    Items.getItem(iId, (err, result) => {
+        if(err) {
+            throw err;
+        } else {
+            res.send(result);
+        }
+    });
+});
+
 module.exports = router;

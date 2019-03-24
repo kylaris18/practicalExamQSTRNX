@@ -33,4 +33,17 @@ Items.addItem = function addItem(oData, result) {
     })
 }
 
+Items.getItem = function getItem(iId, result) {
+    let sQuery = 'SELECT * FROM items WHERE id=' + iId;
+    db.query(sQuery, (err,res) => {
+        if (err) {
+            console.log('error: ' + err);
+            result(err, null);
+        } else {
+            console.log(res);
+            result(null, res);
+        }
+    })
+}
+
 module.exports = Items;

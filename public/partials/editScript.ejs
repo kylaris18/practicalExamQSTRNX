@@ -1,0 +1,19 @@
+$( document ).ready(function() {
+    let iId = $('#itemId').val();
+    // front end validation here
+    $.ajax({
+        type: 'GET',
+        url: '/api/items/' + iId,
+        success: function(aItem) {
+            let iItemLength = aItem.length;
+            if (iItemLength > 0) {
+                $('#itemName').val(aItem[0].name);
+                $('#itemQuantity').val(aItem[0].qty);
+                $('#itemAmount').val(aItem[0].amount);
+            }
+        },
+        error: function(err) {
+            console.log(err);
+        }
+    });
+});
