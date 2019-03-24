@@ -27,7 +27,6 @@ Items.addItem = function addItem(oData, result) {
             console.log('error: ' + err);
             result(err, null);
         } else {
-            console.log(res);
             result(null, res);
         }
     })
@@ -40,7 +39,6 @@ Items.getItem = function getItem(iId, result) {
             console.log('error: ' + err);
             result(err, null);
         } else {
-            console.log(res);
             result(null, res);
         }
     })
@@ -54,7 +52,6 @@ Items.editItem = function editItem(oData, result) {
             console.log('error: ' + err);
             result(err, null);
         } else {
-            console.log(res);
             result(null, res);
         }
     })
@@ -67,7 +64,6 @@ Items.deleteItem = function deleteItem(iId, result) {
             console.log('error: ' + err);
             result(err, null);
         } else {
-            console.log(res);
             result(null, res);
         }
     })

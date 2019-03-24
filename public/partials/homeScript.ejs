@@ -22,7 +22,7 @@ $( document ).ready(function() {
                 }
                 $('#inventoryTable').append(sToAppend);
             } else {
-                $('#inventoryTable').append('<p>No record.</p>');
+                $('#inventoryTable').append('<td colspan="5"><center>No record.</center></p>');
             }
         },
         error: function(err) {
@@ -30,7 +30,7 @@ $( document ).ready(function() {
             $('#inventoryTable').append('<p>An error has occured.</p>');
         }
     });
-    
+
     $(document).on('click', '.deleteItem', function(){
         let bConfirm = confirm('Are you sure you want to delete this item?');
         if (bConfirm === true) {
