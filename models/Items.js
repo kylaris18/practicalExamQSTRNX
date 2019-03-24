@@ -60,4 +60,17 @@ Items.editItem = function editItem(oData, result) {
     })
 }
 
+Items.deleteItem = function deleteItem(iId, result) {
+    let sQuery = 'DELETE FROM items where id=' + iId;
+    db.query(sQuery, (err,res) => {
+        if (err) {
+            console.log('error: ' + err);
+            result(err, null);
+        } else {
+            console.log(res);
+            result(null, res);
+        }
+    })
+}
+
 module.exports = Items;

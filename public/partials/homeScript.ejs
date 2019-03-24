@@ -30,4 +30,28 @@ $( document ).ready(function() {
             $('#inventoryTable').append('<p>An error has occured.</p>');
         }
     });
+    
+    $(document).on('click', '.deleteItem', function(){
+        let bConfirm = confirm('Are you sure you want to delete this item?');
+        if (bConfirm === true) {
+            let iId = $(this).val();
+            //front end validation here
+            $.ajax({
+                type: 'DELETE',
+                url: '/api/items/' + iId,
+                success: function(aResult) {
+                    if (aResult.serverStatus === 2) {
+                        alert('Item deleted successfully.');
+                        location.href = '/';
+                    } else {
+                        alert('An error has occured.');
+                        console.log(aItem);
+                    }
+                },
+                error: function(err) {
+                    console.log(err);
+                }
+            });
+        }
+    });
 });

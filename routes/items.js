@@ -47,4 +47,16 @@ router.put('/items/:id', (req, res, next) => {
     });
 });
 
+router.delete('/items/:id', (req, res, next) => {
+    var iId = req.params.id;
+    //validate here.
+    Items.deleteItem(iId, (err, result) => {
+        if(err) {
+            throw err;
+        } else {
+            res.send(result);
+        }
+    });
+});
+
 module.exports = router;
