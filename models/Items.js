@@ -46,4 +46,18 @@ Items.getItem = function getItem(iId, result) {
     })
 }
 
+Items.editItem = function editItem(oData, result) {
+    let aUpdate = [oData.name, oData.qty, oData.amount, oData.id];
+    let sQuery = 'UPDATE items SET name=?, qty=?, amount=? WHERE id=?';
+    db.query(sQuery, aUpdate, (err,res) => {
+        if (err) {
+            console.log('error: ' + err);
+            result(err, null);
+        } else {
+            console.log(res);
+            result(null, res);
+        }
+    })
+}
+
 module.exports = Items;

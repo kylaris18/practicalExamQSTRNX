@@ -35,4 +35,16 @@ router.get('/items/:id', (req, res, next) => {
     });
 });
 
+router.put('/items/:id', (req, res, next) => {
+    var oData = req.body;
+    //validate here.
+    Items.editItem(oData, (err, result) => {
+        if(err) {
+            throw err;
+        } else {
+            res.send(result);
+        }
+    });
+});
+
 module.exports = router;
