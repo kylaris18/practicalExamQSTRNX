@@ -1,0 +1,19 @@
+{
+  "name": "practicalexamqstrnx",
+  "version": "1.0.0",
+  "description": "Practical Exam for Web Developer job application.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kylaris18/practicalExamQSTRNX.git"
+  },
+  "author": "Christian Jay Labao",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kylaris18/practicalExamQSTRNX/issues"
+  },
+  "homepage": "https://github.com/kylaris18/practicalExamQSTRNX#readme"
+}
