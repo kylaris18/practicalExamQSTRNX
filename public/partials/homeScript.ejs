@@ -1,0 +1,33 @@
+$( document ).ready(function() {
+    $.ajax({
+        type: 'GET',
+        url: '/api/items',
+        success: function(aItems) {
+            let sToAppend = '';
+            let iItemsLength = aItems.length;
+            if (iItemsLength > 0) {
+                for ( var iCounter = 0; iCounter < iItemsLength; iCounter++) {
+                    sToAppend += `
+                        <tr>
+                            <td scope="row">${aItems[iCounter].id }</td>
+                            <td>${aItems[iCounter].name}</td>
+                            <td>${aItems[iCounter].qty }</td>
+                            <td>${aItems[iCounter].amount }</td>
+                            <td>
+                                <a href="/items/${aItems[iCounter].id }" class="btn btn-success">Edit</a>
+                                <button value=${aItems[iCounter].id } class="btn btn-danger deleteItem">Delete</button>
+                            </td>
+                        </tr>
+                    `;
+                }
+                $('#inventoryTable').append(sToAppend);
+            } else {
+                $('#inventoryTable').append('<p>No record.</p>');
+            }
+        },
+        error: function(err) {
+            console.log(err);
+            $('#inventoryTable').append('<p>An error has occured.</p>');
+        }
+    });
+});
