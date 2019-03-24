@@ -1,0 +1,29 @@
+$( document ).ready(function() {
+    $('#itemFormSubmit').click(function(e){
+        e.preventDefault();
+        let oData = {
+            name: $('#itemName').val(),
+            qty: $('#itemQuantity').val(),
+            amount: $('#itemAmount').val()
+        };
+        // front end validation here
+        $.ajax({
+            type: 'POST',
+            url: '/api/items/',
+            data: oData,
+            success: function(aResult) {
+                if (aResult.serverStatus === 2) {
+                    alert('Item added successfully.');
+                    location.href = '/';
+                } else {
+                    alert('An error has occured.');
+                    console.log(aItem);
+                }
+            },
+            error: function(err) {
+                alert('An error has occured.');
+                console.log(err);
+            }
+        });
+    });
+});

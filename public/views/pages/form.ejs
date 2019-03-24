@@ -1,0 +1,26 @@
+<% include ../../partials/header.ejs %>
+    <h1>
+        <%=sTitle %> Item
+    </h1>
+    <form id="itemForm">
+        <div class="form-group">
+            <label for="itemName">Item Name</label>
+            <input type="text" class="form-control" id="itemName" placeholder="Enter Item Name" value="">
+            <small id="nameHelp" class="form-text text-muted">Enter the name of your item.</small>
+        </div>
+        <div class="form-group">
+            <label for="itemQuantity">Item Quantity</label>
+            <input type="number" class="form-control" id="itemQuantity" placeholder="Enter Quantity" value="">
+            <small id="quantityHelp" class="form-text text-muted">Enter quantity of your item.</small>
+        </div>
+        <div class="form-group">
+            <label for="itemAmount">Item Name</label>
+            <input type="number" class="form-control" id="itemAmount" placeholder="Enter Amount" value="">
+            <small id="amountHelp" class="form-text text-muted">Enter desired amount of your item.</small>
+        </div>
+        <button id="itemFormSubmit" class="btn btn-primary">Submit</button>
+        <a href="/" class="btn btn-default">Cancel</a>
+    </form>
+<% include ../../partials/footer.ejs %>
+<% include ../../partials/scripts.ejs %>
+<script src="/public/partials/<%=sScript%>.ejs"></script>

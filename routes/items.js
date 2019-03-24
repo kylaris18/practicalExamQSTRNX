@@ -12,4 +12,16 @@ router.get('/items', (req, res, next) => {
     });
 });
 
+router.post('/items/', (req, res, next) => {
+    var oData = req.body;
+    //validate here.
+    Items.addItem(oData, (err, result) => {
+        if(err) {
+            throw err;
+        } else {
+            res.send(result);
+        }
+    });
+});
+
 module.exports = router;
